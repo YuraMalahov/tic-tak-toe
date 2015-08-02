@@ -12,7 +12,7 @@ class TicTacToeField implements Field
     const NOT_SET = 0;
     const CELLS_COUNT = 3;
 
-    protected $filed = [];
+    protected $field = [];
 
     protected $storage = null;
 
@@ -23,7 +23,7 @@ class TicTacToeField implements Field
         $data = $storage->getData(self::KEY);
 
         if ($data) {
-            $this->filed = $data;
+            $this->field = $data;
         } else {
             $this->reset();
         }
@@ -38,7 +38,7 @@ class TicTacToeField implements Field
      */
     public function setValue($x, $y, $value)
     {
-        $this->filed[$y][$x] = $value;
+        $this->field[$y][$x] = $value;
     }
 
     /**
@@ -50,7 +50,7 @@ class TicTacToeField implements Field
      */
     public function getValue($x, $y)
     {
-        return $this->filed[$y][$x];
+        return $this->field[$y][$x];
     }
 
     /**
@@ -60,7 +60,7 @@ class TicTacToeField implements Field
      */
     public function getData()
     {
-        return array_merge($this->filed);
+        return array_merge($this->field);
     }
 
     /**
@@ -68,7 +68,7 @@ class TicTacToeField implements Field
      */
     public function reset()
     {
-        $this->filed = array_fill(0, self::CELLS_COUNT, array_fill(
+        $this->field = array_fill(0, self::CELLS_COUNT, array_fill(
             0, self::CELLS_COUNT, self::NOT_SET
         ));
     }
@@ -78,6 +78,6 @@ class TicTacToeField implements Field
      */
     public function save()
     {
-        $this->storage->setData('field', $this->filed);
+        $this->storage->setData('field', $this->field);
     }
 }
