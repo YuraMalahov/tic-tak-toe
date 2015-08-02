@@ -68,11 +68,9 @@ class TicTacToeField implements Field
      */
     public function reset()
     {
-        $this->filed = [
-            [self::NOT_SET, self::NOT_SET, self::NOT_SET],
-            [self::NOT_SET, self::NOT_SET, self::NOT_SET],
-            [self::NOT_SET, self::NOT_SET, self::NOT_SET]
-        ];
+        $this->filed = array_fill(0, self::CELLS_COUNT, array_fill(
+            0, self::CELLS_COUNT, self::NOT_SET
+        ));
     }
 
     /**
